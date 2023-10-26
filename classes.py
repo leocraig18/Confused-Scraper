@@ -161,26 +161,41 @@ class AttributeGenerator:
         else:
             raise ValueError(f"Unknown race: {race}\nOptions: {[race for race in self.names_by_race.keys()]}")
 
-    def generate_random_birthdate(self, start_year=1960, end_year=2003) -> datetime:
-        # Generate a random year, month, and day within the specified range
-        year = random.randint(start_year, end_year)
-        month = random.randint(1, 12)
+    # def generate_random_birthdate(self, start_year=1960, end_year=2003) -> datetime:
+    #     # Generate a random year, month, and day within the specified range
+    #     year = random.randint(start_year, end_year)
+    #     month = random.randint(1, 12)
         
-        # Determine the last day of the month to avoid generating an invalid date
-        if month in {4, 6, 9, 11}:
-            day = random.randint(1, 30)
-        elif month == 2:
-            # Check for leap year
-            if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
-                day = random.randint(1, 29)
-            else:
-                day = random.randint(1, 28)
-        else:
-            day = random.randint(1, 31)
+    #     # Determine the last day of the month to avoid generating an invalid date
+    #     if month in {4, 6, 9, 11}:
+    #         day = random.randint(1, 30)
+    #     elif month == 2:
+    #         # Check for leap year
+    #         if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    #             day = random.randint(1, 29)
+    #         else:
+    #             day = random.randint(1, 28)
+    #     else:
+    #         day = random.randint(1, 31)
         
-        # Create a datetime object for the random birthdate
-        birthdate = datetime(year, month, day)
-        return birthdate
+    #     # Create a datetime object for the random birthdate
+    #     birthdate = datetime(year, month, day)
+    #     return birthdate
+    def select_birthdate(self) -> datetime:
+        current_year = datetime.now().year
+        month = 10
+        day = 10
+        twenty_yo = datetime(year=current_year - 20, month=month, day=day)
+        thirty_five_yo = datetime(year=current_year - 35, month=month, day=day)
+        fifty_five_yo = datetime(year=current_year - 55, month=month, day=day)
+        ages = [twenty_yo, thirty_five_yo, fifty_five_yo]
+
+        # Select randomly among the ages
+        random_dob = random.choice(ages)
+
+        return random_dob
+
+
     
     def generate_random_marital_status(self) -> str:
         return random.choice(['Single', 'Married'])
