@@ -60,97 +60,39 @@ class AttributeGenerator:
         self.names_by_race = {
             'South_Asian': {
                 "Mr": {
-                'First_Name': ['Patel', 'Singh', 'Sharma', 'Kaur', 'Ageve'],
-                'Last_Name': ['Argarwal', 'Aggarwal', 'Ahluwalia', 'Ahuja', 'Akhtar']
-            },
+                    'First_Name': ['Arnav', 'Rohit', 'Vikram', 'Vignesh', 'Sanjay', 'Dinil', 'Raj', 'Dev', 'Anil', 'Ankit'],
+                    'Last_Name': ['Patel', 'Shah', 'Singh', 'Khan', 'Marwaha', 'Chowdhury', 'Wickramasinghe', 'Mukherjee', 'Banerjee', 'Sinha']
+                },
                 "Miss": {
-                'First_Name': ['Patel', 'Singh', 'Sharma', 'Kaur', 'Ageve'],
-                'Last_Name': ['Argarwal', 'Aggarwal', 'Ahluwalia', 'Ahuja', 'Akhtar']
-            }},
+                    'First_Name': ['Ayesha', 'Priya', 'Pavan', 'Smita', 'Meena', 'Niranjana', 'Preeti', 'Sarika', 'Vaishnavi', 'Simran'],
+                    'Last_Name': ['Patel', 'Shah', 'Singh', 'Khan', 'Marwaha', 'Chowdhury', 'Wickramasinghe', 'Mukherjee', 'Banerjee', 'Sinha']
+                }},
             'White': {
                 "Mr": {
-                'First_Name': ['William', 'John', 'Mark', 'Emma', 'Marie'],
-                'Last_Name': ['Argarwal', 'Aggarwal', 'Ahluwalia', 'Ahuja', 'Akhtar']
-            },
+                    'First_Name': ['William', 'Jonathan', 'Mark', 'James', 'Alexander', 'David', 'Thomas', 'Dominic', 'Christopher', 'Leonard'],
+                    'Last_Name': ['Peters', 'Smith', 'Green', 'Brown', 'Strong', 'Cullen', 'McDermott', 'Pearson', 'Morrison', 'Baker']
+                },
                 "Miss": {
-                'First_Name': ['Patel', 'Singh', 'Sharma', 'Kaur', 'Ageve'],
-                'Last_Name': ['Argarwal', 'Aggarwal', 'Ahluwalia', 'Ahuja', 'Akhtar']
-            }},
+                    'First_Name': ['Emma', 'Isobel', 'Molly', 'Claire', 'Jossy', 'Phoebe', 'Sarah', 'Jessica', 'Holly', 'Mia'],
+                    'Last_Name': ['Peters', 'Smith', 'Green', 'Brown', 'Strong', 'Cullen', 'McDermott', 'Pearson', 'Morrison', 'Baker']
+                }},
             'Black': {
                 "Mr": {
-                'First_Name': ['Abdu', 'Adebayo', 'Bailey', 'Carter','Imani'],
-                'Last_Name': ['Butler', 'Bennet', 'Bambgbala', 'Atta', 'Carter']
-            },
+                    'First_Name': ['Kwame', 'Kofi', 'Kwesi', 'Ayodele', 'Chinedu', 'Osaze', 'Ade', 'Jelani', 'Amadi', 'Nana'],
+                    'Last_Name': ['Nantume', 'Udemezue', 'Amenyah', 'Oluwole', 'Adeyemi', 'Okeke', 'Okafor', 'Abimbola', 'Nwosu', 'Antwi-Darkwah']
+                },
                 "Miss": {
-                'First_Name': ['Patel', 'Singh', 'Sharma', 'Kaur', 'Ageve'],
-                'Last_Name': ['Argarwal', 'Aggarwal', 'Ahluwalia', 'Ahuja', 'Akhtar']
+                    'First_Name': ['Opeyemi', 'Agatha', 'Zainab', 'Folake', 'Chiamaka', 'Nneka', 'Yaa', 'Laila', 'Nabila', 'Amara'],
+                    'Last_Name': ['Nantume', 'Udemezue', 'Amenyah', 'Oluwole', 'Adeyemi', 'Okeke', 'Okafor', 'Abimbola', 'Nwosu', 'Antwi-Darkwah']
                 }}
         }
-        self.black_white_postcodes=[
-    ('B19 3UY', 'B18 6EX'), ('B6 4HA', 'B19 3DL'), ('B19 3BA', 'B19 3DX'), ('B19 3BB', 'B19 3AD'), 
-    ('B19 3BS', 'B18 6EL'), 
-    ('SE24 0LP','SW9 8BH'), ('SW9 8QS', 'SW9 9SA'), ('SW9 8QR', 'SW9 8AT'), ('SW2 1EH', 'SW9 9UP'), 
-    ('SW9 8QT', 'SW9 9QT'), 
-    ('M16 7LR', 'M40 3PT'), ('M14 4SX', 'M40 3QT'), ('M16 7LA', 'M40 3QX'), ('M14 4SS', 'M40 3SS'), 
-    ('M16 7LN', 'M40 3QE'), 
-    ('M14 4RE', 'M40 3WA'), ('M14 4JR', 'M40 3WN'), ('M14 4SA', 'M40 3ND'), ('M14 4JQ', 'M40 0BX'),
-    ('M14 4WE', 'M40 3NW'),
-    ('B19 3BX', 'B32 3AU'), ('B19 2NQ', 'B29 5PQ'), ('B19 2NR', 'B29 5TX'), ('B19 3BY', 'B31 1XN'), 
-    ('B19 2JU', 'B31 1AH'), 
-    ('B6 4JX', 'B44 0AZ'), ('B19 2QB', 'B23 5DE'), ('B19 2NZ', 'B23 5XL'), ('B19 2NY', 'B23 5AT'),
-    ('B19 2SW', 'B23 5XN'),
-    ('B7 4ET', 'B31 3UJ'), ('B7 4SA', 'B31 3UG'), ('B7 4QP', 'B31 3AA'), ('B7 4AH', 'B31 3AB'), 
-    ('B7 4SH', 'B31 2NB'),
-    ('BS2 0QD', 'BS7 0BD'), ('BS5 9SJ', 'BS7 0EU'), ('BS5 9SX', 'BS7 0EW'), ('BS5 9ST', 'BS7 0LE'),
-    ('BS5 9SR', 'BS7 0EQ'), 
-    ('BS2 8XQ', 'BS3 1ES'), ('BS2 8XW', 'BS3 3NY'),('BS2 9JG', 'BS3 3AN'), ('BS2 9JT', 'BS3 3BL'),
-    ('BS2 9JU', 'BS3 3BJ'),
-    ('B7 5AS', 'B24 9ES'), ('B7 5ET', 'B23 6GR'), ('B7 5AB', 'B24 9HE'), ('B7 4QJ', 'B24 9DW'), 
-    ('B7 5JD', 'B24 9HB'), 
-    ('B7 5BP', 'B15 3AS'), ('B7 5BQ', 'B15 2LB'), ('B7 5BD', 'B15 3SS'), ('B7 5BW', 'B15 2JR'),
-    ('B7 5BJ', 'B15 2LL')
-    ]
-        self.asian_white_postcodes = [
-    ('LE4 7QA', 'LE4 2JN'), ('LE4 7SB', 'LE4 2RJ'), ('LE4 7QZ',
-                                                     'LE4 2QF'), ('LE4 5PN', 'LE4 2PW'),
-    ('LE4 7PR', 'LE4 2PE'),
-    ('OL1 2EE', 'OL1 3HY'), ('OL1 2EL', 'OL1 3RH'), ('OL9 6AX',
-                                                     'OL1 3UX'), ('OL1 2NL', 'OL1 3QW'),
-    ('OL1 2NJ', 'OL1 3RS'),
-    ('BB1 5PA', 'BB1 4EL'), ('BB1 5QB', 'BB1 4BH'), ('BB1 5LB',
-                                                     'BB5 4LS'), ('BB1 5FB', 'BB1 4BY'),
-    ('BB1 3AB', 'BB1 4AH'),
-    ('B19 1TT', 'B32 3EN'), ('B19 1QP', 'B32 3HU'), ('B19 1QX',
-                                                     'B32 3DL'), ('B19 1NP', 'B32 3DB'),
-    ('B19 1QL', 'B32 3HR'),
-    ('B19 2BB', 'B32 3BS'), ('B19 2HT', 'B32 3BL'), ('B19 2BZ',
-                                                     'B62 0QD'), ('B19 2AY', 'B32 3QR'),
-    ('B19 2BS', 'B62 0EP'),
-    ('BD7 3AU', 'WS3 1DW'), ('BD7 2BY', 'WS3 1DF'), ('BD7 2BL',
-                                                     'WS3 1DL'), ('BD7 3AG', 'WS3 1FQ'),
-    ('BD7 2BU', 'WS3 1PD'),
-    ('BD7 3AN', 'BS1 6LY'), ('BD7 2DQ', 'BS1 6HH'), ('BD7 3AA',
-                                                     'BS1 6JQ'), ('BD7 3AL', 'BS1 6BA'),
-    ('BD7 2DW', 'BS1 6AA'),
-    ('LE4 5HS', 'LE11 2JS'), ('LE4 5HZ', 'LE11 2JW'), ('LE4 5HH',
-                                                       'LE11 2LN'), ('LE4 5BB', 'LE11 2JD'),
-    ('LE4 5GG', 'LE11 2NA'),
-    ('LE4 5FG', 'LE11 2DQ'), ('LE4 5AW', 'LE11 2QR'), ('LE4 5HP',
-                                                       'LE11 2QS'), ('LE4 5GF', 'LE11 2NL'),
-    ('LE4 5GZ', 'LE11 2FD'),
-    ('OL8 1UQ', 'DN1 2LT'), ('OL8 1TU', 'DN1 2EU'), ('OL8 1TH',
-                                                     'DN1 2ES'), ('OL9 6HA', 'DN1 2NB'),
-    ('OL8 1TP', 'DN1 2NN'),
-    ('OL12 9BL', 'DN1 2JG'), ('OL12 9BQ',
-                              'DN1 2NA'), ('OL16 2LE', 'DN1 2HY'), ('OL16 2NA', 'DN1 2HU'),
-    ('OL16 2DS', 'DN1 2NE'),
-    ('BB5 1SP', 'DY11 7DR'), ('BB5 1SZ', 'DY11 7BW'), ('BB5 1SS',
-                                                       'DY11 7JD'), ('BB5 1TG', 'DY11 7BF'),
-    ('BB5 1TD', 'DY11 7DS'),
-    ('B11 3LG', 'B45 0BQ'), ('B11 3NN', 'B45 0LD'), ('B11 3TA',
-                                                     'B45 0DE'), ('B11 4AW', 'B45 0HB'),
-    ('B11 3LE', 'B45 0BH')
-]
+
+        self.postcodes = {"AW": 
+                          [('B19 1QP', 'B19 3DX'), ('B19 2BB', 'B19 3DX'), ('B19 2BS', 'B18 6EX'), ('B19 2AY', 'B19 3AD'), ('B19 1QX', 'B19 3DX'), ('B19 1NP', 'B18 6EX'), ('B19 1QL', 'B19 3AD'), ('B19 1NP', 'B19 3AD'), ('B19 1QX', 'B18 6EX'), ('B19 1NP', 'B19 3DL'), ('B19 1NP', 'B18 6EL'), ('B19 2BS', 'B19 3DL'), ('B19 2HT', 'B19 3AD'), ('B19 2BS', 'B19 3AD'), ('B19 2HT', 'B18 6EX'), ('B19 1TT', 'B19 3DX'), ('B19 1QX', 'B19 3AD'), ('B19 1QX', 'B18 6EL'), ('B19 1QP', 'B19 3AD'), ('B19 2HT', 'B19 3DL'), ('B19 1NP', 'B19 3DX'), ('B19 1TT', 'B18 6EX'), ('B19 2BB', 'B19 3DL'), ('B19 1QL', 'B18 6EX'), ('B19 1TT', 'B19 3DL'), ('B19 1TT', 'B19 3AD'), ('B19 2BS', 'B19 3DX'), ('B19 2BB', 'B19 3AD'), ('B19 2AY', 'B18 6EL'), ('B19 2BZ', 'B18 6EL'), ('B19 2BS', 'B18 6EL'), ('B19 2BZ', 'B18 6EX'), ('B19 1TT', 'B18 6EL'), ('B19 2BZ', 'B19 3DL'), ('B19 1QX', 'B19 3DL'), ('B19 2AY', 'B18 6EX'), ('B19 2HT', 'B19 3DX'), ('B19 1QL', 'B19 3DX'), ('B19 1QP', 'B19 3DL'), ('B19 2BB', 'B18 6EL'), ('B19 1QL', 'B19 3DL'), ('B19 2BZ', 'B19 3AD'), ('B19 1QP', 'B18 6EL'), ('B19 2BB', 'B18 6EX'), ('B19 2AY', 'B19 3DX'), ('B19 1QL', 'B18 6EL'), ('B19 2AY', 'B19 3DL'), ('B19 2HT', 'B18 6EL'), ('B19 1QP', 'B18 6EX'), ('B19 2BZ', 'B19 3DX')],
+                          "BW": 
+                          [('BS2 9JU', 'BS1 6LY'), ('BS2 9JG', 'BS3 3AN'), ('B19 3BY', 'B19 3DX'), ('BS2 8XW', 'BS3 3BJ'), ('BS2 8XW', 'BS1 6AA'), ('BS2 8XQ', 'BS3 3BJ'), ('B19 2NR', 'B19 3DX'), ('SW9 8QS', 'SW9 9SA'), ('BS2 9JT', 'BS3 1ES'), ('BS2 8XQ', 'BS3 3NY'), ('BS2 8XW', 'BS3 1ES'), ('B19 3BY', 'B19 3AD'), ('B19 2SW', 'B19 3DX'), ('B19 3BX', 'B19 3DX'), ('B19 2JU', 'B18 6EL'), ('BS2 0QD', 'BS3 3AN'), ('SW9 8QS', 'SW9 8AT'), ('B19 2NY', 'B18 6EL'), ('SW9 8QT', 'SW9 9QT'), ('BS2 8XQ', 'BS1 6AA'), ('B19 3UY', 'B19 3AD'), ('B19 3BB', 'B19 3DL'), ('B19 2NR', 'B19 3DL'), ('B19 2NR', 'B18 6EX'), ('B19 2NZ', 'B18 6EL'), ('B19 2SW', 'B19 3AD'), ('B19 3BB', 'B18 6EL'), ('BS2 9JT', 'BS1 6LY'), ('B19 2NQ', 'B19 3DL'), ('B19 3BA', 'B19 3DX'), ('B19 2JU', 'B19 3DL'), ('BS2 0QD', 'BS1 6JQ'), ('BS2 8XW', 'BS3 3NY'), ('BS2 0QD', 'BS3 3BL'), ('BS2 9JU', 'BS3 1ES'), ('BS2 8XW', 'BS1 6LY'), ('B19 2NY', 'B19 3DL'), ('B19 2SW', 'B18 6EX'), ('BS2 0QD', 'BS1 6LY'), ('B19 2JU', 'B19 3AD'), ('BS2 9JG', 'BS3 3BJ'), ('BS2 9JG', 'BS1 6JQ'), ('B19 3UY', 'B18 6EX'), ('B19 3UY', 'B18 6EL'), ('B19 3BB', 'B18 6EX'), ('B19 3BA', 'B18 6EX'), ('B19 2NZ', 'B19 3DL'), ('B19 2QB', 'B18 6EL'), ('SW9 8QS', 'SW9 8BH'), ('B19 3UY', 'B19 3DL')], 
+                          "AB": 
+                          [('B19 2BB', 'B19 3BA'), ('B19 2BZ', 'B19 2JU'), ('B19 2BS', 'B19 2QB'), ('B19 1QL', 'B19 3BS'), ('B19 2BB', 'B19 2NQ'), ('B19 2BS', 'B19 2NY'), ('B19 2BB', 'B19 3UY'), ('B19 2HT', 'B19 3BA'), ('B19 2BS', 'B19 3BY'), ('B19 1QX', 'B19 2NR'), ('B19 1QX', 'B19 2NY'), ('B19 2BS', 'B19 3BS'), ('B19 1QP', 'B19 2QB'), ('B19 2HT', 'B19 3UY'), ('B19 1QX', 'B19 3BS'), ('B19 2BZ', 'B19 3BX'), ('B19 2AY', 'B19 3BY'), ('B19 1QX', 'B19 3BB'), ('B19 1TT', 'B19 2QB'), ('B19 2HT', 'B19 2NQ'), ('B19 1QL', 'B19 3BA'), ('B19 2BS', 'B19 3BA'), ('B19 2BZ', 'B19 2NQ'), ('B19 1QL', 'B19 2NZ'), ('B19 1NP', 'B19 2NY'), ('B19 1QP', 'B19 3BS'), ('B19 2AY', 'B19 2JU'), ('B19 1QP', 'B19 2JU'), ('B19 1QL', 'B19 2NR'), ('B19 2BZ', 'B19 2QB'), ('B19 1QX', 'B19 3UY'), ('B19 1TT', 'B19 2NZ'), ('B19 1QP', 'B19 2NY'), ('B19 1QP', 'B19 3BB'), ('B19 1QX', 'B19 3BX'), ('B19 1QX', 'B19 2SW'), ('B19 2AY', 'B19 3BX'), ('B19 1QP', 'B19 3BA'), ('B19 2BS', 'B19 3BB'), ('B19 1QX', 'B19 3BA'), ('B19 1QL', 'B19 2NY'), ('B19 2BZ', 'B19 2NZ'), ('B19 2HT', 'B19 2NR'), ('B19 1QX', 'B19 2QB'), ('B19 2HT', 'B19 3BS'), ('B19 1NP', 'B19 3BA'), ('B19 2BS', 'B19 2NQ'), ('B19 1QP', 'B19 3BX'), ('B19 1NP', 'B19 2NR'), ('B19 2HT', 'B19 2NY')]}
 
     def generate_random_name(self, race) -> tuple:
         if race in self.names_by_race:
@@ -206,11 +148,8 @@ class AttributeGenerator:
         return choice[0], choice[1]
 
     def generate_random_postcode(self, race_combination) -> tuple:
-        if race_combination == "BW":
-            return random.choice(self.black_white_postcodes)
-        elif race_combination == "AW":
-            return random.choice(self.asian_white_postcodes)
+        if race_combination in self.postcodes:
+            postcode_pair = random.choice(self.postcodes[race_combination])
+            return postcode_pair
         else:
-            raise ValueError(f"Unknown race_combination: {race_combination}\nOptions: 'BW', 'AW'")
-
-
+            raise ValueError(f"Unknown race_combination: {race_combination}\nOptions: 'BW', 'AW', 'AB'")
