@@ -18,7 +18,10 @@ def setup_database(conn):
                   last_name TEXT, 
                   race TEXT,           
                   dob DATETIME,  
-                  postcode TEXT
+                  postcode TEXT,
+                  car_make TEXT,
+                  car_model TEXT,
+                  car_reg TEXT
               )
               ''')
 
@@ -50,11 +53,11 @@ def insert_person(db, person):
     db.cursor()
     # Prepare the INSERT statement
     sql = '''
-          INSERT INTO People (title, first_name, last_name, race, dob, postcode)
+          INSERT INTO People (title, first_name, last_name, race, dob, postcode, car_make, car_model, car_reg)
           VALUES (?, ?, ?, ?, ?, ?)
           '''
     cur = db.cursor()
-    cur.execute(sql, (person.title, person.first_name, person.last_name, person.race, person.dob, person.postcode))
+    cur.execute(sql, (person.title, person.first_name, person.last_name, person.race, person.dob, person.postcode, person.car.manufacturer, person.car.model, person.car.reg_number))
 
     # Commit the transaction
     db.commit()
