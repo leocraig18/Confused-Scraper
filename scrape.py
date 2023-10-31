@@ -8,8 +8,28 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 
+def wait_for_element(driver, by, value):
+    return WebDriverWait(driver, 10).until(EC.element_to_be_clickable((by, value)))
+
+
+def click_element(driver, by, value):
+    element = wait_for_element(driver, by, value)
+    element.click()
+
+
+def send_keys_to_element(driver, by, value, keys):
+    element = wait_for_element(driver, by, value)
+    element.send_keys(keys)
+
+
+def select_from_dropdown_by_index(driver, element_id, index):
+    dropdown = Select(wait_for_element(driver, By.ID, element_id))
+    dropdown.select_by_index(index)
+
 def setup_webdriver():
+
     # Initialize the WebDriver session
+    # Make sure to pass the options
     driver = webdriver.Chrome()
     driver.implicitly_wait(5)
     return driver
@@ -24,8 +44,10 @@ def scrape(person, driver):
     wait = WebDriverWait(driver, 10)
 
 
-
+    time.sleep(0.3)
     # First Page
+    wait.until(EC.presence_of_element_located(
+        (By.ID, 'registration-number-input')))
     driver.find_element(by=By.ID, value='registration-number-input').send_keys(f'{person.car.reg_number}')
     driver.find_element(by=By.ID, value='find-vehicle-btn').click()
     element = driver.find_element(by=By.ID, value='HasDashcam_2') # No dash cam
@@ -64,7 +86,7 @@ def scrape(person, driver):
 
     # Last name
     driver.find_element(by=By.ID, value='Driver_LastName').send_keys(f'{person.last_name}') # Change to form loop
-
+    time.sleep(0.3)
     # Date of birth
     driver.find_element(by=By.ID, value='Driver_DateOfBirth_Day').send_keys(f'{person.dob.day}')
     driver.find_element(by=By.ID, value='Driver_DateOfBirth_Month').send_keys(f'{person.dob.month}')
@@ -174,13 +196,14 @@ def scrape(person, driver):
 
     element = driver.find_element(by=By.ID, value='AnyChildrenUnderSixteen_2')  # No
     driver.execute_script('arguments[0].click();', element)
-
+    time.sleep(0.3)
     dropdown_element = wait.until(EC.visibility_of_element_located((By.ID, 'NoClaimsBonus')))
     select_dropdown = Select(dropdown_element)
     select_dropdown.select_by_index(2) # change this accordingly 1 year
+    time.sleep(0.3)
 
-    # button = driver.find_element(by=By.CSS_SELECTOR, value='.btn--primary.btn--arrow.btn--large.btn-form-submit.btn--submit')
-    # button.click()
+    button = driver.find_element(by=By.CSS_SELECTOR, value='.btn--primary.btn--arrow.btn--large.btn-form-submit.btn--submit')
+    button.click()
 
     button_find_addy = driver.find_element(By.ID, 'findAddressBtn')
 
@@ -222,7 +245,7 @@ def scrape(person, driver):
     element = driver.find_element(by=By.ID, value='TermsAndConditions_AgreeTermsAndConditions')
     element.click()
 
-
+    time.sleep(0.3)
     # Back to top to finish form:
     element = driver.find_element(by=By.ID, value='HasTheCarBeenBought_2')
     driver.execute_script('arguments[0].click();', element)
@@ -281,3 +304,4 @@ def scrape(person, driver):
     html = driver.page_source
     print('Success')
     return html
+

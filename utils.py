@@ -9,10 +9,11 @@ def create_people(num_of_iterations, cars) -> list:
             dob = generator.select_birthdate()
             postcode_bw = generator.generate_random_postcode('BW')
             postcode_aw = generator.generate_random_postcode('AW')
+            person_white = Person(name=generator.generate_random_name(
+                'White'), dob=dob, postcode=postcode_bw[1], car=car)
+            people.append(person_white)
             person_black = Person(name=generator.generate_random_name('Black'), dob=dob, postcode=postcode_bw[0], car=car)
             people.append(person_black)
-            person_white = Person(name=generator.generate_random_name('White'), dob=dob, postcode=postcode_bw[1], car=car)
-            people.append(person_white)
             person_south_asian = Person(name=generator.generate_random_name('South_Asian'), dob=dob, postcode=postcode_aw[0], car=car)
             people.append(person_south_asian)
             person_white2 = Person(name=generator.generate_random_name('White'), dob=dob, postcode=postcode_aw[1], car=car)

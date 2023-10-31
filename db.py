@@ -37,6 +37,7 @@ def setup_database(conn):
                   breakdown_cover BOOLEAN,
                   windscreen_cover BOOLEAN,
                   personal_accident_cover BOOLEAN,
+                  black_box_policy BOOLEAN,
                   FOREIGN KEY (person_id) REFERENCES People (ID)
               )
               ''')
@@ -54,7 +55,7 @@ def insert_person(db, person):
     # Prepare the INSERT statement
     sql = '''
           INSERT INTO People (title, first_name, last_name, race, dob, postcode, car_make, car_model, car_reg)
-          VALUES (?, ?, ?, ?, ?, ?)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
           '''
     cur = db.cursor()
     cur.execute(sql, (person.title, person.first_name, person.last_name, person.race, person.dob, person.postcode, person.car.manufacturer, person.car.model, person.car.reg_number))
@@ -72,15 +73,15 @@ def insert_quotes_for_person(db, person_id, quotes):
     db.cursor()
     # Prepare the INSERT statement
     sql = '''
-          INSERT INTO Quotes (person_id, company, price, legal_cover, courtesy_car, breakdown_cover, windscreen_cover, personal_accident_cover)
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+          INSERT INTO Quotes (person_id, company, price, legal_cover, courtesy_car, breakdown_cover, windscreen_cover, personal_accident_cover, black_box_policy)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
           '''
 
     cur = db.cursor()
 
     # Iterate through the quotes and insert each one with the same person_id
     for quote in quotes:
-        cur.execute(sql, (person_id, quote.company, quote.price, quote.legal_cover, quote.courtesy_car, quote.breakdown_cover, quote.windscreen_cover, quote.personal_accident_cover))
+        cur.execute(sql, (person_id, quote.company, quote.price, quote.legal_cover, quote.courtesy_car, quote.breakdown_cover, quote.windscreen_cover, quote.personal_accident_cover, quote.black_box_policy))
 
     # Commit the transaction
     db.commit()
