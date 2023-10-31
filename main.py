@@ -1,5 +1,6 @@
 from classes import Person, Car, AttributeGenerator
-from scrape import setup_webdriver, close_webdriver, scrape
+from scrape import setup_webdriver, close_webdriver
+from scrape2 import scrape
 from utils import create_people, create_cars
 import time
 from soupify import extract_quotes
@@ -27,9 +28,8 @@ def main():
         except Exception as e:
             print(e)
         finally:
-            te = time.monotonic()
-            tte = te - ts
-            print(tte)
+            tte = time.monotonic() - ts
+            print(f"Took {round(tte, 3)} seconds to execute")
     close_database(conn)
     print(f'Inserted {rows_in_people_db} rows into the People table.')
 
