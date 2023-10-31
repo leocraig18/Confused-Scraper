@@ -16,6 +16,10 @@ def click_element(driver, by, value):
     element = wait_for_element(driver, by, value)
     element.click()
 
+def click_element_js(driver, by, value):
+    element = wait_for_element(driver, by, value)
+    driver.execute_script('arguments[0].click();', element)
+
 
 def send_keys_to_element(driver, by, value, keys):
     element = wait_for_element(driver, by, value)
@@ -245,7 +249,7 @@ def scrape(person, driver):
     element = driver.find_element(by=By.ID, value='TermsAndConditions_AgreeTermsAndConditions')
     element.click()
 
-    time.sleep(0.3)
+    time.sleep(1)
     # Back to top to finish form:
     element = driver.find_element(by=By.ID, value='HasTheCarBeenBought_2')
     driver.execute_script('arguments[0].click();', element)
@@ -302,6 +306,5 @@ def scrape(person, driver):
     element = WebDriverWait(driver, 45).until(EC.visibility_of_element_located((By.ID, 'ViewAllPricesButton')))
     element.click()
     html = driver.page_source
-    print('Success')
     return html
 
