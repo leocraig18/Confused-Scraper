@@ -11,7 +11,7 @@ def main():
     conn = connect_to_database()
     setup_database(conn)
     cars = create_cars()
-    all_people = create_people(num_of_iterations=15, cars=cars)
+    all_people = create_people(num_of_iterations=10, cars=cars)
     for person in all_people:
         ts = time.monotonic()
         try:
