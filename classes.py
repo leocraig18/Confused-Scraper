@@ -45,7 +45,7 @@ class Person:
         return f"{name[0]}{name[1]}{n}@gmail.com"
 
 class Quote:
-    def __init__(self, company, price, legal_cover, courtesy_car, breakdown_cover, windscreen_cover, personal_accident_cover, black_box_policy):
+    def __init__(self, company, price, legal_cover, courtesy_car, breakdown_cover, windscreen_cover, personal_accident_cover, black_box_policy, defaqto_rating, compulsory_excess):
         self.company = company
         self.price = price
         self.legal_cover = legal_cover  # feature1
@@ -54,6 +54,9 @@ class Quote:
         self.windscreen_cover = windscreen_cover  # feature4
         self.personal_accident_cover = personal_accident_cover  # feature5
         self.black_box_policy = black_box_policy
+        self.defaqto_rating = defaqto_rating
+        self.compulsory_excess = compulsory_excess
+
 
 # Build an attribute generator class
 class AttributeGenerator:
