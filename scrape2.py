@@ -8,11 +8,8 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 from datetime import datetime
 
-# server = Server("/Users/User101/browsermob-proxy-2.1.4/bin/browsermob-proxy")
-# server.start()
-# proxy = server.create_proxy()
 
-def wait_for_element(driver, by, value, time_to_wait=10):
+def wait_for_element(driver, by, value):
     return WebDriverWait(driver, 10).until(EC.element_to_be_clickable((by, value)))
 
 
@@ -35,12 +32,6 @@ def select_from_dropdown_by_index(driver, element_id, index):
     dropdown.select_by_index(index)
 
 def setup_webdriver():
-    # Configure WebDriver to use the proxy
-    # chrome_options = webdriver.ChromeOptions()
-    # chrome_options.add_argument("--proxy-server={0}".format(proxy.proxy))
-    # Initialize the WebDriver session
-    # Make sure to pass the options
-
     driver = webdriver.Chrome()
     driver.implicitly_wait(5)
     return driver
@@ -61,7 +52,7 @@ def scrape(person, driver):
         years_index = 26
         no_claims_index = 21
 
-    driver.get('https://motor.confused.com/CarDetails')
+    driver.get('https://motor.confused.com/CarDetails/')
     wait = WebDriverWait(driver, 10)
     time.sleep(0.3)
     
@@ -130,7 +121,6 @@ def scrape(person, driver):
     time.sleep(0.3)
     click_element_js(driver, By.ID, 'Driver_EnterDrivingLicenceNumber_2')
     select_from_dropdown_by_index(driver, 'Driver_LicenceHeldYears', years_index)
-    time.sleep(0.5)
     if years_index == 26 or years_index == 17:
         pass
     else:
@@ -165,7 +155,7 @@ def scrape(person, driver):
     
 
     # Final Form Page
-    time.sleep(1)
+    time.sleep(1.2)
     click_element_js(driver, By.ID, 'HasTheCarBeenBought_2')
     click_element_js(driver, By.ID, 'WillOwnTheCarByThePolicyStartDate_1')
     click_element_js(driver, By.ID, 'CarUsageGeneral_27684') # Social and commuting
@@ -185,7 +175,7 @@ def scrape(person, driver):
     click_element(driver, By.ID, 'setup-account')
     
     # View Prices Button
-    element = WebDriverWait(driver, 45).until(EC.visibility_of_element_located((By.ID, 'ViewAllPricesButton')))
+    element = WebDriverWait(driver, 45).until(EC.element_to_be_clickable((By.ID, 'ViewAllPricesButton')))
     element.click()
     html = driver.page_source
     return html
